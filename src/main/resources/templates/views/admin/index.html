@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>ADMIN</title>
+    <th:block th:insert="~{/views/admin/fragments/css-lib}"></th:block>
+</head>
+<body id="page-top" ng-app="shopping-cart-app" ng-controller="shopping-cart-ctrl">
+
+    <div id="wrapper">
+        <div th:replace="~{/views/admin/fragments/menu :: menu}"></div>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div th:replace="~{/views/admin/fragments/content :: content}"></div>
+            <div th:replace="~{/views/admin/fragments/footer :: footer}"></div>
+        </div>
+        <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+
+
+    </div>
+
+    <!--Footer-->
+
+    <th:block th:insert="~{/views/admin/fragments/js-lib}"></th:block>
+</body>
+</html>

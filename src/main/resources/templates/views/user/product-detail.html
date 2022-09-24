@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>LTech</title>
+    <th:block th:insert="~{/views/user/fragments/css-lib}"></th:block>
+</head>
+<body ng-app="shopping-cart-app" ng-controller="shopping-cart-ctrl">
+    <!-- Navbar -->
+    <div th:replace="~{/views/user/fragments/header :: header}">Header</div>
+    <main class="page product-page">
+        <section class="clean-block clean-product dark">
+            <div class="container" style="padding: 26px 0px 0px;">
+                <!-- Product Info & Product Other -->
+                <div th:replace="~{/views/user/fragments/pro-inf :: pro-inf}"></div>
+            </div>
+        </section>
+    </main>
+    <!--Footer-->
+    <div th:replace="~{/views/user/fragments/footer :: footer}">Slide</div>
+    <th:block th:insert="~{/views/user/fragments/js-lib}"></th:block>
+</body>
+</html>

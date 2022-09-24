@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<div class="content-wrapper" th:fragment="content">
+  <section class="content">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">List Video</h3>
+      </div>
+      <div class="card-body">
+        <table id="example1" class="table table-bordered table-hover">
+          <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Price</th>
+            <th>CreateDate</th>
+            <th>Available</th>
+            <th>Category</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr th:each="p:${products}">
+              <td th:text="${p.id}"></td>
+              <td th:text="${p.name}"></td>
+              <td th:text="${p.image}"></td>
+              <td th:text="${p.price}"></td>
+              <td th:text="${p.createDate}"></td>
+              <td th:text="${p.available}"></td>
+              <td th:text="${p.category}"></td>
+              <td>
+                <a href="<c:url value='/admin/video?action=edit&href=${item.href}' />"
+                   type="button" class="btn btn-success">Edit</a>
+                <button type="button" onclick="deleteVideo('${item.href}')"
+                        class="btn btn-danger">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>
+</body>
+</html>

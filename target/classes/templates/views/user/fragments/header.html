@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<main class="page catalog-page">
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar" th:fragment="header">
+        <div class="container">
+            <a class="navbar-brand logo" href="#" th:href="@{/}">LTech</a>
+            <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2">
+                <span class="visually-hidden">Toggle navigation</span>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navcol-2">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" th:href="@{/}">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="products.html" th:href="@{/}">Sản phẩm</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog-post-list.html" th:href="@{/order/list}">Đơn hàng</a>
+                    </li>
+                    <li class="nav-item" th:if="${#request.isUserInRole('DIRE') or #request.isUserInRole('STAF')}">
+                        <a th:href="@{/admin/home/index}" class="nav-link ">Administration</a>
+                    </li>
+                    <li class="nav-item" style="padding: 0px 37px 0px 0px ;">
+                        <a class="nav-link" href="shopping-cart.html" th:href="@{/cart/view}">Giỏ hàng</a>
+                    </li>
+                </ul>
+                <th:block th:unless="${#request.remoteUser}">
+                <div>
+                    <a class="nav-link text-body font-weight-bold px-0" th:href="@{/security/register}"
+                        style="font-size: 14px;">
+                        <span class="d-sm-inline d-none"
+                              style="font-size: 14px;color: rgb(101,101,101);">Đăng kí&nbsp;&nbsp;</span>
+                    </a>
+                </div>
+                <div><a class="nav-link text-body font-weight-bold px-0" th:href="@{/security/login/form}"
+                        style="font-size: 14px;">
+                        <span class="d-sm-inline d-none"
+                              style="font-size: 14px;color: rgb(101,101,101);">|&nbsp; Đăng nhập</span></a>
+                </div>
+                </th:block>
+                <th:block th:if="${#request.remoteUser}">
+                    <div>
+                        <a class="nav-link text-body font-weight-bold px-0" th:href="@{/}"
+                           style="font-size: 14px;">
+                            <span class="d-sm-inline d-none"
+                                  style="font-size: 14px;color: rgb(101,101,101);">[[${#request.remoteUser}]]&nbsp;&nbsp;</span>
+                        </a>
+                    </div>
+                    <div><a class="nav-link text-body font-weight-bold px-0" th:href="@{/security/logoff}"
+                            style="font-size: 14px;">
+                            <span class="d-sm-inline d-none"
+                                  style="font-size: 14px;color: rgb(101,101,101);">|&nbsp; Đăng xuất</span></a>
+                    </div>
+                </th:block>
+            </div>
+        </div>
+    </nav>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>LTech</title>
+    <th:block th:insert="~{/views/user/fragments/css-lib}"></th:block>
+</head>
+<body ng-app="shopping-cart-app" ng-controller="shopping-cart-ctrl">
+    <main class="page catalog-page">
+        <!-- Navbar -->
+        <div th:replace="~{/views/user/fragments/header :: header}">Header</div>
+        <section class="clean-block clean-catalog dark">
+            <div class="container">
+                <!-- Slide -->
+                <div th:replace="~{/views/user/fragments/slide :: slide}">Slide</div>
+                <!-- Content -->
+                <div class="content">
+                    <div class="row">
+                        <!-- Filter -->
+                        <div th:replace="~{/views/user/fragments/filter :: filter}">Slide</div>
+                        <!-- Products -->
+                        <div th:replace="~{/views/user/fragments/products :: products}">Products</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+    <!--Footer-->
+    <div th:replace="~{/views/user/fragments/footer :: footer}">Slide</div>
+    <th:block th:insert="~{/views/user/fragments/js-lib}"></th:block>
+    <script th:inline="javascript">
+        function Redirect(id) {
+            window.location = "category=" + id;
+        }
+        //-->
+    </script>
+</body>
+</html>

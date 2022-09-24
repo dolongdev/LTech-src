@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<main class="page registration-page" th:fragment="main">
+    <section class="clean-block clean-form dark">
+        <div class="container">
+            <div class="block-heading">
+                <h2 class="text-info">Đăng kí</h2>
+            </div>
+            <form th:action="@{/security/register}" method="post">
+                <div class="mb-3"><label class="form-label" for="name">Họ và tên</label><input class="form-control item"
+                                                                                               type="text" id="name"></div>
+                <div class="mb-3"><label class="form-label" for="email">Email</label><input class="form-control item"
+                                                                                           type="email" id="email"></div>
+                <div class="mb-3"><label class="form-label" for="username">Tên đăng nhập</label><input class="form-control item"
+                                                                                                   type="text" id="username"></div>
+                <div class="mb-3"><label class="form-label" for="password">Mật khẩu</label><input
+                        class="form-control item" type="password" id="password"></div>
+                <div class="mb-3"><label class="form-label" for="rePassword">Nhập lại mật khẩu</label><input
+                        class="form-control item" type="password" id="rePassword"></div>
+                <button class="btn btn-primary"
+                        type="submit">Đăng kí</button>
+                <small id="loginHelp" class="form-text text-danger" th:text="${message}"></small>
+            </form>
+        </div>
+    </section>
+</main>
+
+</body>
+</html>

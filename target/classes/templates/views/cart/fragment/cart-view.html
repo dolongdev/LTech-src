@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<main class="page shopping-cart-page" th:fragment="main">
+    <section class="clean-block clean-cart dark">
+        <div class="container" style="padding: 26px 0px 0px;">
+            <div class="content">
+                <div class="row g-0">
+                    <div class="col-md-12 col-lg-8">
+                        <div class="items">
+                            <div class="product" ng-repeat="item in cart.items">
+                                <div class="row justify-content-center align-items-center">
+                                    <div class="col-md-3">
+                                        <div class="product-image"><img class="img-fluid d-block mx-auto image"
+                                                                        th:src="@{|/assets/img/tech/{{item.image}}|}"></div>
+                                    </div>
+                                    <div class="col-md-5 product-info"><a class="product-name" href="#">{{item.name}}</a>
+                                        <div class="product-specs">
+                                            <div><span>Display:&nbsp;</span><span class="value">{{item.id}}</span></div>
+                                            <div><span>RAM:&nbsp;</span><span class="value">{{item.name}}</span></div>
+                                            <div><span>Memory:&nbsp;</span><span class="value">{{item.price | number : 2}}</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-2 quantity"><label class="form-label d-none d-md-block"
+                                                                                for="quantity">Số lượng</label>
+                                        <input ng-change="cart.saveToLocalStorage()" ng-model="item.qty" type="number" min="1" />
+                                    </div>
+                                    <div class="col-6 col-md-2 price"><span>${{item.qty * item.price | number : 2}}</span></div>
+                                    <button ng-click="cart.remove(item.id)" class="btn btn-sm btn-danger"><i
+                                            class="glyphicon glyphicon-trash"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-4">
+                        <div class="summary">
+                            <h3>Tổng thanh toán</h3>
+                            <h4><span class="text">Tổng tiền</span><span class="price">$360</span></h4>
+                            <h4><span class="text">Giảm giá</span><span class="price">$0</span></h4>
+                            <h4><span class="text">Phí ship</span><span class="price">$0</span></h4>
+                            <h4><span class="text">Total</span><span class="price">${{item.qty * item.price | number : 2}}</span></h4>
+                            <button class="btn btn-primary btn-lg d-block w-100" type="button">Đặt hàng</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+</body>
+</html>

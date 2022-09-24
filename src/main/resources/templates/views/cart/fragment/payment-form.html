@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<main class="page payment-page" th:fragment="pay-form">
+    <section class="clean-block payment-form dark">
+        <div class="container" style="padding: 26px 0px 0px;">
+            <form>
+                <div class="products">
+                    <h3 class="title">Thủ tục thanh toán</h3>
+                    <div class="item" ng-repeat="item in cart.items">
+                        <span class="price">{{item.price}}</span>
+                        <p class="item-name">{{item.name}}</p>
+                        <p class="item-description">{{item.price | number : 2}}</p>
+                    </div>
+                    <div class="total"><span>Tổng tiền</span><span class="price">${{item.qty * item.price | number : 2}}</span></div>
+                </div>
+                <div class="card-details">
+                    <h3 class="title">Thông tin đặt hàng</h3>
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <div class="mb-3"><label class="form-label" for="username">Người đặt</label>
+                                <input  class="form-control" type="text" name="username" id="username" th:value="${#request.remoteUser}">
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="mb-3"><label class="form-label">Ngày đặt</label>
+                                <div class="input-group expiration-date">
+                                    <input  class="form-control" type="text" name="createDate" value="{{order.createDate | date: 'dd-MM-yyyy'}}"></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="mb-3"><label class="form-label">Địa chỉ</label>
+                                <input ng-model="order.address" class="form-control"></div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="mb-3"><button ng-click="order.purchase()" class="btn btn-primary d-block w-100" type="submit">Xác nhận</button></div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+
+</body>
+</html>
